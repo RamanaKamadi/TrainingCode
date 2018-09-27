@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title>Successfully registered</title>
+      <style>
+        span {color: blue;}
+      </style>
+        <link rel="stylesheet" type="text/css" media="all"  href="../static/css/main.css" th:href="@{/static/css/main.css}" />
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   </head>
+    
+   <body>
+    
+      <!-- Include _menu.html -->
+      <th:block th:include="/_menu"></th:block>  
+       <h2 style="color:#9ACD32;" th:if="${mode}=='upd'" >You have successfully Updated!</h2>
+      <h2 style="color:#9ACD32;" th:if="${flag}=='log'">You have successfully registered!</h2>
+       
+      <div th:if="${flashUser != null}">
+         <ul>
+            <li>User Name: <span th:utext="${flashUser.userName}">..</span></li>
+            <li>Email: <span th:utext="${flashUser.email}">..</span></li>
+         </ul>
+        <p> <B>NOTE:</B> UserID and Password have been sent to above mail address.</p> 
+         
+      </div>
+      
+       
+   </body>
+</html>

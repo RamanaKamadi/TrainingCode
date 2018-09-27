@@ -1,0 +1,173 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title th:utext="${title}"></title>
+      <style>
+         th td {
+         margin-bottom:15px;
+         padding: 5px;
+         }
+         td span  {
+         font-size:90%;
+         font-style: italic;
+         color: red;
+         }
+         .error {
+         color: red;
+         font-style: italic;
+         }
+      </style> 
+      <link rel="stylesheet" type="text/css" media="all"  href="../static/css/main.css" th:href="@{/static/css/main.css}" />
+       <!-- <link rel="stylesheet" type="text/css" href="../static/css/main.css"/> -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+ 
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   </head>
+   <body>
+      <!-- Include _menu.html -->
+      <th:block th:include="/_menu"></th:block>
+      <div th:if="${flag}=='Reg'">
+      <h2 style="color:blue;">Register</h2>
+       </div> 
+       <div th:if="${flag}=='log'">
+      <h2 style="color:blue;">Update</h2>
+       </div>
+      <div th:if="${errorMessage != null}"
+           th:utext="${errorMessage}" class="error">...</div>
+       
+      <form th:action="@{/register}" th:object="${appUserForm}" method="POST">
+      
+        <div th:if="${confirmationMessage}" class="alert alert-success"
+          role="alert" th:text=${confirmationMessage}></div>
+         <table>
+            <tr>
+               <td>User Name</td>
+               <td><input type="text" th:field="*{userName}" /></td>
+               <td>
+                  <span th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">..</span>
+               </td>
+            </tr>
+            
+            <tr th:if="${flag}=='Reg'">
+               <td>Password</td>
+               <td><input type="password" th:field="*{password}" /> </td>
+               <td>
+                  <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}">..</span>
+               </td>
+            </tr>
+            <tr th:if="${flag}=='Reg'">
+               <td>Confirm</td>
+               <td><input type="password" th:field="*{confirmPassword}" /> </td>
+               <td>
+                  <span th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}">..</span>
+               </td>
+            </tr>
+            
+            <tr>
+               <td>Email</td>
+               <td><input type="text" th:field="*{email}" /> </td>
+               <td>
+                  <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>First Name</td>
+               <td><input type="text" th:field="*{firstName}" /> </td>
+               <td>
+                  <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Last Name</td>
+               <td><input type="text" th:field="*{lastName}" /> </td>
+               <td>
+                  <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Gender</td>
+              <!--  <td>
+                  <select th:field="*{gender}">
+                     <option value=""> -- </option>
+                     <option value="M">Male</option>
+                     <option value="F">Female</option>
+                  </select>
+               </td> -->
+               <td>
+               <ul>
+           <li th:each="g: ${genderList}">
+             <input type="radio" 
+                th:field="*{gender}"
+                 th:value="${g.value}" />
+              <label 
+               th:for="${#ids.prev('gender')}"
+               th:text="${g.key}"></label>
+                </li>
+             </ul>
+             </td>
+               <td>
+                  <span th:if="${#fields.hasErrors('gender')}" th:errors="*{gender}">..</span>
+               </td>
+            </tr>
+            <tr>
+               <td>Country</td>
+               <td>
+                  <select th:field="*{countryCode}">
+                     <option value=""> -- </option>
+                     <option th:each="country : ${countries}"
+                        th:value="${country.countryCode}"
+                        th:utext="${country.countryName}"/>
+                  </select>
+               <td><span th:if="${#fields.hasErrors('countryCode')}" th:errors="*{countryCode}">..</span></td>
+            </tr>
+            <tr>
+           <td>Known Languages</td>
+           <td> 
+           <ul>
+          <li th:each="eachLang: ${languageList}">
+             <input type="checkbox" 
+             th:field="*{language}"
+               th:value="${eachLang}" />
+             <label 
+                th:for="${#ids.prev('language')}"
+                th:text="${eachLang}"></label>
+              </li>
+           </ul>
+           
+           
+           </td>
+            
+            
+            
+            
+            </tr>
+                   
+                      
+             <tr>
+               <td>&nbsp;</td>
+              
+               <td>
+               
+                 <div th:if="${flag}=='Reg'">
+                  <input type="submit" name="action" value="Submit" />
+                  <a th:href="@{/}">Cancel</a>
+                   </div>
+                    <div th:if="${flag}=='upd'">
+                     <input type="hidden" th:field="*{flag}" th:value="upd"/>
+                  <input type="submit" name="action" value="Update" />
+                  <a th:href="@{/}">Cancel</a>
+                   </div>
+                  
+               
+               </td>
+               
+               <td>&nbsp;</td>
+               
+            </tr>
+         </table>
+         <input type="hidden" th:field="*{flag}"/>
+      </form>
+       
+   </body>
+</html>

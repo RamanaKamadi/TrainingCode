@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <title th:utext="${title}"></title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" th:href="@{/css/main.css}"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+   </head>
+    
+   <style>
+      table th, table td {
+         padding: 5px;
+         border: 1px solid black;
+      }
+      table th{
+         background-color:#B0E0E6;
+                  
+      }
+      table td{
+         background-color:#FFFFF0;
+                  
+      }
+      .message {
+         color: blue;
+      }
+   </style>
+    
+   <body>
+    
+      <!-- Include _menu.html -->
+      <th:block th:include="/_menu"></th:block>  
+       
+      <h2 style="color:#1E90FF;">Users Details</h2>
+       
+    
+       
+      <table border="1">
+            <tr>
+               <th>User Name</th>
+               <th>First Name</th>
+               <th>Last Name</th>
+               <th>Email</th>
+               <th>Gender</th>
+            </tr>
+            <tr th:each ="member : ${members}">
+               <td th:utext="${member.userName}">...</td>
+               <td th:utext="${member.firstName}">...</td>
+               <td th:utext="${member.lastName}">...</td>
+               <td th:utext="${member.email}">...</td>
+               <td th:utext="${member.gender}">...</td>
+            </tr>
+      </table>
+       
+   </body>
+</html>
