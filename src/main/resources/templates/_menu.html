@@ -1,5 +1,5 @@
 <div xmlns:th="http://www.thymeleaf.org"
-     style="border: 1px solid #ccc;padding:5px;margin-bottom:20px;">
+     style="border: 1px solid #ccc;padding:5px;margin-bottom:20px; margin-left:0px;">
  
   <!-- <a th:href="@{/}">Home</a>
  
@@ -12,28 +12,25 @@
    <a th:href="@{/register}">Register</a> -->
    
    
-       
-   
+          
    <nav class="nav-tabs">
   <div class="container-fluid">
   
-       <ul class="nav navbar-nav nav-color tab-div">
+       <ul class="nav navbar-nav nav-color">
       <li class="active"><a th:href="@{/}">Home</a></li>
       <li><a  th:href="@{/register}">Register</a></li>
+      <li><a th:href="@{/login}">Login</a>
       <li><a  th:href="@{/userDetails}">View</a></li>
-     <li> <div class="alert alert-dismissable">
-     <a th:href="@{/update}" data-dismiss="alert" aria-hidden="true">Update</a>
-     
-     </div> 
-     <!-- <a th:href="@{/update}">Update</a> --></li>
-     
-      <li><a th:href="@{/login}">Login</a></li>
-    </ul>
+     <li> <a th:href="@{/update}" data-dismiss="alert" data-toggle="nav">Update</a></li>
+        </ul>
   
   </div>
 </nav>
  
 </div>
+
+ 
+  
  <div th:if="${flag}=='upd'" class="alert alert-danger alert-dismissible">
     <!-- <a href="@{/update}" class="close" data-dismiss="alert" aria-label="close">&times;</a> -->
     <strong>Warning!</strong> Please Login to Update.

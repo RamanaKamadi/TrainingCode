@@ -74,8 +74,7 @@ public class AppUserDAOImpl implements AppUserDAO {
 		 
 		 
 		
-	        
-		return user;
+	        		return user;
 	}
 
 	@Override

@@ -360,7 +360,7 @@ public class MainController {
       form.setLanguage(newUser.getLanguage());
       
       
-      model.addAttribute("flag", "upd");
+      model.addAttribute("flag", "log");
       return "registerPage";
    }
    

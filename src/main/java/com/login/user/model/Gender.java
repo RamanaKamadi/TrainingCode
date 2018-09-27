@@ -27,6 +27,5 @@ public class Gender {
 		this.male = male;
 	}
     
-    
-    
+        
 }

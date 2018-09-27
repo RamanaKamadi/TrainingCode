@@ -20,7 +20,6 @@ public class AppUser {
     private String countryCode;
  
     
-
 	public AppUser() {
  
     }

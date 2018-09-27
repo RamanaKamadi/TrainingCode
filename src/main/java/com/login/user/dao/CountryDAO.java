@@ -22,6 +22,7 @@ public class CountryDAO {
  
     private static void initDATA() {
  
+    	
         Country vn = new Country("VN", "Vietnam");
         Country en = new Country("EN", "England");
         Country fr = new Country("FR", "France");

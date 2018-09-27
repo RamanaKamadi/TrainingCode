@@ -31,15 +31,18 @@ h1 { color: #78ab46; } h2 { color: #2189ce }
   border: 1px solid #888888;
  
 }
-.tab-div>li{
-	 margin-left: 0px;
+.mainDiv{
+	margin-left:50px;
 }
+
+
+
 .container-fluid>div{
 	
 	margin-left: 0px;
 }
 
-th td { 
+th td {  
 	    margin:5px;
          padding: 10px;
          }

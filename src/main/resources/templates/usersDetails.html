@@ -30,11 +30,10 @@
     
       <!-- Include _menu.html -->
       <th:block th:include="/_menu"></th:block>  
-       
+       <div class="mainDiv">
       <h2 style="color:#1E90FF;">Users Details</h2>
        
-    
-       
+           
       <table border="1">
             <tr>
                <th>User Name</th>
@@ -51,6 +50,6 @@
                <td th:utext="${member.gender}">...</td>
             </tr>
       </table>
-       
+       </div>
    </body>
 </html>

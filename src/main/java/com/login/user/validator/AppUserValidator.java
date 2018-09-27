@@ -29,6 +29,7 @@ public class AppUserValidator implements Validator {
        return clazz == AppUserForm.class;
    }
 
+   
    @Override
    public void validate(Object target, Errors errors) {
        AppUserForm appUserForm = (AppUserForm) target;

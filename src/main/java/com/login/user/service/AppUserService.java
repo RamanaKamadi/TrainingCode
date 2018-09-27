@@ -40,7 +40,7 @@ public class AppUserService {
         return max;
     }
  
-    //
+    
  
     public AppUser findAppUserByUserName(String userName) {
      Collection<AppUser> appUsers = appUserDAO.getAllUsers();

@@ -17,23 +17,22 @@
          font-style: italic;
          }
       </style> 
-      <link rel="stylesheet" type="text/css" media="all"  href="../static/css/main.css" th:href="@{/static/css/main.css}" />
-       <!-- <link rel="stylesheet" type="text/css" href="../static/css/main.css"/> -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+   
  
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-   </head>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" th:href="@{/css/main.css}"/>
+ 
    <body>
       <!-- Include _menu.html -->
       <th:block th:include="/_menu"></th:block>
        
-      <h2 style="color:green;">Welcome to Login Page</h2>
+      <h2 style="color:green;" class="mainDiv">Welcome to Login Page</h2>
        
       <div th:if="${errorMessage != null}"
            th:utext="${errorMessage}" class="error">...</div>
     
       <form th:action="@{/login}" th:object="${appUserForm}" method="POST">
+     <div class="mainDiv">
          <table>
             <tr>
                <td>User Name</td>
@@ -54,11 +53,11 @@
                <td>&nbsp;</td>
                <td>
                   <input type="submit" value="Login" />
-                  
-               </td>
+                                 </td>
                <td>&nbsp;</td>
             </tr>
          </table>
+         </div> 
            <input type="hidden" th:field="*{flag}"/>
       </form>
        

@@ -1,7 +1,7 @@
 package com.login.config;
 
 
-import org.apache.commons.codec.binary.Base64;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;

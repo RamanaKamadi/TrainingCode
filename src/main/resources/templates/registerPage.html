@@ -17,21 +17,20 @@
          font-style: italic;
          }
       </style> 
-      <link rel="stylesheet" type="text/css" media="all"  href="../static/css/main.css" th:href="@{/static/css/main.css}" />
-       <!-- <link rel="stylesheet" type="text/css" href="../static/css/main.css"/> -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
- 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      
+      
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" th:href="@{/css/main.css}"/>
+  
    </head>
    <body>
       <!-- Include _menu.html -->
       <th:block th:include="/_menu"></th:block>
-      <div th:if="${flag}=='Reg'">
-      <h2 style="color:blue;">Register</h2>
+      <div  class="mainDiv" th:if="${flag}=='Reg'">
+      <h2 style="color:#1E90FF;">Register</h2>
        </div> 
-       <div th:if="${flag}=='log'">
-      <h2 style="color:blue;">Update</h2>
+       <div  class="mainDiv" th:if="${flag}=='log'">
+      <h2 style="color:#1E90FF;">Update</h2>
        </div>
       <div th:if="${errorMessage != null}"
            th:utext="${errorMessage}" class="error">...</div>
@@ -40,6 +39,7 @@
       
         <div th:if="${confirmationMessage}" class="alert alert-success"
           role="alert" th:text=${confirmationMessage}></div>
+          <div class="mainDiv">
          <table>
             <tr>
                <td>User Name</td>
@@ -166,6 +166,7 @@
                
             </tr>
          </table>
+         </div>
          <input type="hidden" th:field="*{flag}"/>
       </form>
        

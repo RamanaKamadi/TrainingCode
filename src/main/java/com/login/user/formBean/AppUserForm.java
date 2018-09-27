@@ -18,7 +18,6 @@ public class AppUserForm {
     private String flag;
     
    
-
 	public AppUserForm() {
  
     }
